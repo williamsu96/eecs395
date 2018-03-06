@@ -1,9 +1,9 @@
 body{
-    margin:5%;
-    margin-top: 10%;
     background: white;
     font-family: 'Helvetica', sans-serif;
     color: black;
+    margin:5%;
+    margin-top:10%;
 /*
     background-image: url(images/image.jpg);
     background-repeat: no-repeat;
@@ -18,20 +18,12 @@ header{
     background:white;
 }
 
-.inline-block-center {
-  text-align: center;
-    position:relative;
+.body-text {
+    margin-left: 10%;
+    width:80%;
+    text-align: center;
+    font-size: 150%;
 }
-.inline-block-center div {
-  display: inline-block;
-  text-align: left;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-}
-
 
 .line{
     size: 3%;
@@ -40,12 +32,8 @@ header{
 }
 
 .image{
-    margin-top: 7%;
     float:right;
+    margin-top: 7%;
     width:30%;
     height:30%;
-}
-
-.body-content{
-    text-align: center;
 }

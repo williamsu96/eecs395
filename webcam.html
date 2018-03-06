@@ -1,18 +1,69 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
-   <div class="round-button"><div class="round-button-circle"><a href="home.html" class="round-button">Home</a></div></div>
-   <div class="round-button"><div class="round-button-circle"><a href="info.html" class="round-button">Info</a></div></div>
-   <div class="round-button"><div class="round-button-circle"><a href="webcam.html" class="round-button">Webcam</a></div></div>
-   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-   <link rel="stylesheet" type = "text/css" href = "home.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="webcam.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EECS 395 Website</title>
-    <img src = "image.jpg" alt = "stolen from google images">
 </head>
 
 <body>
-    
+    <!--   Navigation Bar-->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="webcam.html">Webcam</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="info.html">Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://10.106.21.22">Wifi Management System</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--End Navigation Bar-->
+
+    <h1 style="text-align: center">Webcam</h1>
+    <div>
+        <hr>
+    </div>
+    <div class="body-content">
+        <table style="width:100%; margin-left:5%">
+            <tr>
+                <th>
+                    <h3>Webcam Stream</h3>
+                    <img id="image" alt="My webcam image" width="640" height="480">
+                    <h3 id="timestamp">Time Stamp</h3>
+                    <button id="btnWS" type="button" class="btn btn-primary btn-lg" onclick="onClicked()">Start Webcam</button>
+                </th>
+                <th>
+                    <h3>Log</h3>
+                    <textarea id="msg" rows="20" cols="50">
+Connecting to ws://10.106.21.22/stream ...
+Connected.
+</textarea>
+                </th>
+            </tr>
+
+            <!--   taken from example file -->
+
+        </table>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="webcam.js"></script>
+    </div>
 </body>
+
 </html>

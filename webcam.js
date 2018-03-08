@@ -2,6 +2,7 @@ var websocket = null; // websocket instance
 var localhost = "192.168.1.65";
 var b = document.getElementById('btnWS');
 var buttonClicked = false;
+var open = false;
 
 // Initialize the websocket
 function init() {
@@ -32,11 +33,13 @@ function doConnect() { // makes a connection and defines callbacks
     } else {
         writeToScreen("Disconnecting ...");
         websocket.close();
+        open = false;
     }
 }
 
 function onOpen(evt) { // when handshake is complete:
     writeToScreen("Connected.");
+    open = true;
     //*** Change the text of the button to read "Stop Webcam" ***//
     b.innerHTML = "Stop Webcam";
     //*** Change the title attribute of the button to display "Click to stop webcam" ***//
@@ -48,6 +51,7 @@ function onOpen(evt) { // when handshake is complete:
 }
 
 function onClose(evt) { // when socket is closed:
+    open = false;
     writeToScreen("Disconnected. Error: " + evt);
     //*** Change the text of the button to read "Start Webcam" ***//
     b.innerHTML = "Start Webcam";
@@ -83,6 +87,7 @@ function onMessage(msg) { // when client receives a WebSocket message because a 
 
 
 function onError(evt) { // when an error occurs
+    open = false;
     websocket.close();
     writeToScreen("Websocket error");
 
@@ -99,12 +104,12 @@ function onError(evt) { // when an error occurs
 // Set up event listeners
 //*** When the button is clicked, disable it and set the 'buttonClicked' variable to true, and depending on whether a Websocket is open or not, either run "doConnect()" or "websocket.close()" ***//
 
-b.addEventListener("click", onClicked, false);
+//b.addEventListener("click", onClicked, false);
 
 function onClicked() {
     b.disabled = true;
     buttonClicked = true;
-    if (websocket.CLOSED == 1) {
+    if (open == false) {
         doConnect();
     } else {
         websocket.close();

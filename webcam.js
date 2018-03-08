@@ -9,7 +9,7 @@ function init() {
     if (window.location.hostname != "") {
         localhost = window.location.hostname;
     }
-
+    
     doConnect();
 }
 
@@ -40,6 +40,8 @@ function doConnect() { // makes a connection and defines callbacks
 function onOpen(evt) { // when handshake is complete:
     writeToScreen("Connected.");
     open = true;
+    document.getElementById("status").innerHTML = "Online";
+    document.getElementById("status").style.color="#7CFC00";
     //*** Change the text of the button to read "Stop Webcam" ***//
     b.innerHTML = "Stop Webcam";
     //*** Change the title attribute of the button to display "Click to stop webcam" ***//
@@ -69,7 +71,7 @@ function onClose(evt) { // when socket is closed:
 
 function onMessage(msg) { // when client receives a WebSocket message because a new image is ready:
     //*** Display a new timestamp ***//
-    document.getElementById("timestamp").innerHTML=Date.now();
+    document.getElementById("timestamp").innerHTML = Date.now();
     // Get the image just taken from WiFi chip's RAM.
     var image = document.getElementById('image');
     var reader = new FileReader();
